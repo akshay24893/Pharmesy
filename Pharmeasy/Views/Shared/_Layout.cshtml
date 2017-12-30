@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("AuthPharmeasy", "Login", "Login", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            @if (Session["user"] == null)
+            {
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        
+                        <li>
+                            @Html.ActionLink("Doctor", "Index", "DoctorDatas")
+                        </li>
+                        <li>
+                            @Html.ActionLink("patient", "Index", "UserDatas")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Pharmacists", "Index", "Pharmacists")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Medicines", "Index", "Medicines")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Prescriptions", "Index", "Prescriptions")
+                        </li>
+                        <li>
+                            @Html.ActionLink("PrescptMedicin master", "Index", "Prscptn_mdicn_master")
+                        </li>
+                        <li>
+                            @if (Session["UserID"] == null)
+                            {
+                                @Html.ActionLink("Login", "Login", "Login")
+
+                            }
+                            else
+                            {
+                                @Html.ActionLink("Logout", "Logout", "Login")
+                            }
+                        </li>
+                    </ul>
+                </div>
+            }
+            else if (Session["user"].Equals("Pharmacists"))
+            {
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        
+                        <li>
+                            @Html.ActionLink("Medicines", "Index", "Medicines")
+                        </li>
+                        
+                        <li>
+                            @Html.ActionLink("Prescriptions", "PreScrpt", "ShowPrescreption")
+                        </li>
+                        
+                        
+                        <li>
+                            @Html.ActionLink("Request", "ReqPre", "Request")
+                        </li>
+                        <li>
+                            @if (Session["UserID"] == null)
+                            {
+                                @Html.ActionLink("Login", "Login", "Login")
+
+                            }
+                            else
+                            {
+                                @Html.ActionLink("Logout", "Logout", "Login")
+                            }
+                        </li>
+                    </ul>
+                </div>
+            }
+            else if (Session["user"].Equals("DoctorDatas"))
+            {
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        
+                        <li>
+                            @Html.ActionLink("Medicines", "Index", "Medicines")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Prescriptions", "PreScrpt", "ShowPrescreption")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Prescriptions Details", "Index", "Prscptn_mdicn_master")
+                        </li>
+                        
+                        <li>
+                            @Html.ActionLink("Request", "ReqPre", "Request")
+                        </li>
+                        <li>
+                            @if (Session["UserID"] == null)
+                            {
+                                @Html.ActionLink("Login", "Login", "Login")
+
+                            }
+                            else
+                            {
+                                @Html.ActionLink("Logout", "Logout", "Login")
+                            }
+                        </li>
+                    </ul>
+                </div>
+            }
+            else if (Session["user"].Equals("UserDatas"))
+            {
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            @Html.ActionLink("Approvals", "Index", "Approvals")
+                        </li>
+                        
+                        
+                        <li>
+                            @if (Session["UserID"] == null)
+                            {
+                                @Html.ActionLink("Login", "Login", "Login")
+
+                            }
+                            else
+                            {
+                                @Html.ActionLink("Logout", "Logout", "Login")
+                            }
+                        </li>
+                    </ul>
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+
+</html>

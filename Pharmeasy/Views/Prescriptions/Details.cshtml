@@ -1,0 +1,50 @@
+﻿@model Pharmeasy.Models.Prescription
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Prescription</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DoctorData.fname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DoctorData.fname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserData.fname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserData.fname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.treatment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.treatment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.date)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.presciption_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Pharmeasy.Models.Approval>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm())
+{
+    
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Doctor email")
+        </th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    if (item.doc_id == null)
+    { }
+    else
+    { 
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DoctorData.doc_email)
+        </td>
+        <td>
+            @if(item.app_doc==null)
+            {
+             @Html.ActionLink("Grant", "Grant", new { id = item.approval_id })
+            }
+            else
+            {
+            @Html.ActionLink("Revoke", "Revoke", new { id = item.approval_id })
+            }
+        </td>
+    </tr>
+    }
+}
+
+</table>
+    <br />
+    <br />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Pharmacist email")
+        </th>
+
+    </tr>
+    @foreach (var item in Model)
+    {
+        if (item.pharmacist_id == null)
+        { }
+        else
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pharmacist.ph_email)
+                </td>
+                <td>
+                    @if(item.app_ph==null)
+                    {
+                    @Html.ActionLink("Grant", "Grant", new { id = item.approval_id })
+                    }
+                    else
+                    {
+                    @Html.ActionLink("Revoke", "Revoke", new { id = item.approval_id })
+                    }
+                </td>
+            </tr>
+        }
+    }
+
+</table>
+
+}

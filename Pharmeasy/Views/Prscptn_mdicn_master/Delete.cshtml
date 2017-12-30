@@ -1,0 +1,40 @@
+﻿@model Pharmeasy.Models.Prscptn_mdicn_master
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Prscptn_mdicn_master</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Medicine.medicine_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Medicine.medicine_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Prescription.treatment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prescription.treatment)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

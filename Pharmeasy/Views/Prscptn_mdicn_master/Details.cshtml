@@ -1,0 +1,34 @@
+﻿@model Pharmeasy.Models.Prscptn_mdicn_master
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Prscptn_mdicn_master</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Medicine.medicine_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Medicine.medicine_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Prescription.treatment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prescription.treatment)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.prscptn_mdicn_masters_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

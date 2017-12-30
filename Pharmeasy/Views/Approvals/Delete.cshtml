@@ -1,0 +1,64 @@
+﻿@model Pharmeasy.Models.Approval
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Approval</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DoctorData.fname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DoctorData.fname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pharmacist.fname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pharmacist.fname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserData.fname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserData.fname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.app_doc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.app_doc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.app_ph)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.app_ph)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

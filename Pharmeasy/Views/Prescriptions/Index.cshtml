@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Pharmeasy.Models.Prescription>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DoctorData.fname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserData.fname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.treatment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.date)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DoctorData.fname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserData.fname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.treatment)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.date)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.presciption_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.presciption_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.presciption_id })
+        </td>
+    </tr>
+}
+
+</table>
